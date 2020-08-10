@@ -12,7 +12,7 @@ it does not exist, it will be created.
 
 Our solution is a system call (man 2) named dup2. 
 
-Let's see an example:
+Let's see an example:  
 **Example:**
 ```wrap bash
 #include <stdlib.h>
