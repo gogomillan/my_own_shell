@@ -50,3 +50,33 @@ alex@~$
 Here you can see that what was initially printed on stdout with printf, is now  
 printed on stderr. You can check that by redirecting the output on /dev/null,  
 and only stderr should remain.  
+
+## Tasks
+
+### Task 0. stdout to a file
+Write a program that opens a file (in write mode) and redirects stdout to this  
+file. Try to print anything on stdout using printf, puts, write, etc and it  
+should be printed in the file you opened. You can try to enhance your program  
+by passing the file to write in as an argument.  
+
+**Example:**
+```Wrap bash
+vagrant@trusty-64:~$
+vagrant@trusty-64:~$ gcc -Wall -Werror -Wextra -pedantic 0_main.c -o tofile
+vagrant@trusty-64:~$ ./tofile
+Error: Wrong number of arguments
+Usage: tofile <file_name>
+vagrant@trusty-64:~$
+vagrant@trusty-64:~$ ./tofile algo
+vagrant@trusty-64:~$ cat algo
+Test on stdout
+Holberton School
+Cali, CO
+vagrant@trusty-64:~$
+```
+
+**File:**[0_main.c](0_main.c)
+
+## Author
+Gonzalo Gomez Millan [Twitter](https://twitter.com/gogomillan) |
+[LinkedIn](https://linkedin.com/in/gogomillan)
