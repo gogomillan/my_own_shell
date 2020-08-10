@@ -77,6 +77,45 @@ vagrant@trusty-64:~$
 
 **File:** [0_main.c](0_main.c)
 
+### Task 1. stdout to end of a file
+Write a program that opens a file (in write mode) and redirects stdout at the 
+end of this file. Try to print anything on stdout using printf, puts, write,  
+etc and it should be appended at the end of the file you opened. You can try to  
+enhance your program by passing the file to write in as an argument.  
+
+**Example:**
+```wrap bash
+vagrant@trusty-64:~$
+vagrant@trusty-64:~$ gcc -Wall -Werror -Wextra -pedantic 1_main.c -o addfile
+vagrant@trusty-64:~$ ./addfile Tulsa
+vagrant@trusty-64:~$ cat Tulsa
+Test append on stdout
+Holberton School
+Cali, CO
+vagrant@trusty-64:~$ ./addfile Tulsa
+vagrant@trusty-64:~$ cat Tulsa
+Test append on stdout
+Holberton School
+Cali, CO
+Test append on stdout
+Holberton School
+Cali, CO
+vagrant@trusty-64:~$ ./addfile Tulsa
+vagrant@trusty-64:~$ cat Tulsa
+Test append on stdout
+Holberton School
+Cali, CO
+Test append on stdout
+Holberton School
+Cali, CO
+Test append on stdout
+Holberton School
+Cali, CO
+vagrant@trusty-64:~$
+```
+
+**File:** [1_main.c](1_main.c)
+
 ## Author
 Gonzalo Gomez Millan [Twitter](https://twitter.com/gogomillan) |
 [LinkedIn](https://linkedin.com/in/gogomillan)
