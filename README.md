@@ -75,7 +75,7 @@ Cali, CO
 vagrant@trusty-64:~$
 ```
 
-**File:**[0_main.c](0_main.c)
+**File: **[0_main.c](0_main.c)
 
 ## Author
 Gonzalo Gomez Millan [Twitter](https://twitter.com/gogomillan) |
