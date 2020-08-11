@@ -271,6 +271,35 @@ alex@~$
 
 **File:** [3_main.c](3_main.c)
 
+### Task 4. pipe between two processes
+For this exercise, youll need to use the functions fork, execve, dup2 and pipe.  
+Write a program that executes the command /bin/ls in a forked process. Then,  
+execute the command /usr/bin/rev in another forked process, but the output from  
+ls must be piped to rev.  
+
+**Example:**
+```wrap bash
+alex@~$
+alex@~$ ls | rev
+c.niam_0
+c.niam_1
+c.niam_2
+c.niam_3
+c.niam_4
+slh
+alex@~$ gcc -Wall -Wextra -Werror -pedantic 4_main.c -o hls
+alex@~$ ./hls
+c.niam_0
+c.niam_1
+c.niam_2
+c.niam_3
+c.niam_4
+slh
+alex@~$
+```
+
+**File:** [4_main.c](4_main.c)
+
 ## Author
 Gonzalo Gomez Millan [Twitter](https://twitter.com/gogomillan) |
 [LinkedIn](https://linkedin.com/in/gogomillan)

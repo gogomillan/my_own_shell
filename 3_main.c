@@ -43,7 +43,8 @@ int main(int argc, char *argv[])
 	{
 		close(pipefd[WRITE_END]);		  /* Close unused write end */
 		close(STDIN_FILENO);
-		if (dup2(pipefd[READ_END], STDIN_FILENO) == -1)
+		/* if (dup2(pipefd[READ_END], STDIN_FILENO) == -1) */
+		if (dup(pipefd[READ_END]) == -1)
 		{	perror("dup2");
 			return (EXIT_FAILURE);
 		}
@@ -57,12 +58,13 @@ int main(int argc, char *argv[])
 	{
 		close(pipefd[READ_END]);		  /* Close unused read end */
 		close(STDOUT_FILENO);
-		if (dup2(pipefd[WRITE_END], STDOUT_FILENO) == -1)
+		/* if (dup2(pipefd[WRITE_END], STDOUT_FILENO) == -1) */
+		if (dup(pipefd[WRITE_END]) == -1)
 		{	perror("dup2");
 			return (EXIT_FAILURE);
 		}
-
 		close(pipefd[WRITE_END]);
+
 		printf("]%s[ftp\n", argv[1]);
 		fflush(stdout);
 		puts(argv[1]);
