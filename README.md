@@ -13,7 +13,7 @@ Workshop for the shell v2 in Holberton School
 - gcc (Ubuntu 4.8.4-2ubuntu1~14.04.4) 4.8.4
 - [EYNTK] - Shell v2 (Refference to the Holberton's intranet)
 
-## Redirection Concept
+## Redirection_Concept
 If you need execute a command like next:
 ```wrap bash
 ls > ls_result
