@@ -116,7 +116,7 @@ vagrant@trusty-64:~$
 
 **File:** [1_main.c](1_main.c)
 
-### Task 1. stdout to end of a file
+### Task 2. file to command stdin
 Write a program that opens a file, and executes the command **_/usr/bin/rev_** with  
 the files content as input.  
 
