@@ -19,11 +19,12 @@ int main(void)
 	char *av1[] = {"/usr/bin/rev", NULL};
 	char *av2[] = {"/bin/ls", NULL};
 
+	/* Create the pipe */
 	if (pipe(pipefd) == -1)
 	{	perror("pipe");
 		return (EXIT_FAILURE);
 	}
-
+	/* Create the first child process for rev */
 	cpid1 = fork();
 	if (cpid1 == -1)
 	{	perror("fork");
@@ -76,5 +77,6 @@ int main(void)
 			return (EXIT_SUCCESS);
 		}
 	}
+	/* Voilà */
 	return (EXIT_SUCCESS);
 }

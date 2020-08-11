@@ -20,22 +20,20 @@ int main(int argc, char *argv[])
 	pid_t cpid;
 	char *av[] = {"/usr/bin/rev", NULL};
 
+	/* Verify the arguments */
 	if (argc != 2)
-	{
-		fprintf(stderr, "Usage: %s <string>\n", argv[0]);
+	{	fprintf(stderr, "Usage: %s <string>\n", argv[0]);
 		return (EXIT_FAILURE);
 	}
-
+	/* Create the pipe */
 	if (pipe(pipefd) == -1)
-	{
-		perror("pipe");
+	{	perror("pipe");
 		return (EXIT_FAILURE);
 	}
-
+	/* Create the child process*/
 	cpid = fork();
 	if (cpid == -1)
-	{
-		perror("fork");
+	{	perror("fork");
 		return (EXIT_FAILURE);
 	}
 
@@ -63,15 +61,17 @@ int main(int argc, char *argv[])
 		{	perror("dup2");
 			return (EXIT_FAILURE);
 		}
-		close(pipefd[WRITE_END]);
+		close(pipefd[WRITE_END]);		/* Close the unused write end */
 
+		/* Try to print */
 		printf("]%s[ftp\n", argv[1]);
 		fflush(stdout);
 		puts(argv[1]);
 		fflush(stdout);
 		write(STDOUT_FILENO, argv[1], strlen(argv[1]));
-		close(STDOUT_FILENO);		  /* Reader will see EOF */
+		close(STDOUT_FILENO);	/* Reader will see EOF */
 		wait(NULL);				/* Wait for child */
 	}
+	/* Voilà */
 	return (EXIT_SUCCESS);
 }
