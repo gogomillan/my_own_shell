@@ -3,8 +3,8 @@ Workshop for the shell v2 in Holberton School
 
 ## Table of content
 - [Requierements](#Requierements)
-- [Redirection Concept](#Redirection\ Concept)
-- [Pipe Concept](#Pipe Concept)
+- [Redirection Concept](#Redirection_Concept)
+- [Pipe Concept](#Pipe_Concept)
 - [Author](#Author)
 - [License](#License)
 
