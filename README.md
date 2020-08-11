@@ -261,9 +261,13 @@ write,  should be printed reversed.
 alex@~$ echo "Something" | /usr/bin/rev
 gnihtemoS
 alex@~$
+alex@~$ gcc -Wall -Wextra -Werror -pedantic 3_main.c -o hecho
+alex@~$ ./hecho "Something"
+gnihtemoS
+alex@~$
 ```
 
-**File:** [2_main.c](2_main.c)
+**File:** [3_main.c](3_main.c)
 
 ## Author
 Gonzalo Gomez Millan [Twitter](https://twitter.com/gogomillan) |
