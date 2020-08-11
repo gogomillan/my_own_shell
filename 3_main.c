@@ -42,10 +42,12 @@ int main(int argc, char *argv[])
 	if (cpid == 0)				 /* Child reads from pipe */
 	{
 		close(pipefd[WRITE_END]);		  /* Close unused write end */
+		close(STDIN_FILENO);
 		if (dup2(pipefd[READ_END], STDIN_FILENO) == -1)
 		{	perror("dup2");
 			return (EXIT_FAILURE);
 		}
+
 		if (execve(av[0], av, NULL) == -1)
 		{	perror("execve");
 			return (EXIT_FAILURE);
@@ -54,8 +56,19 @@ int main(int argc, char *argv[])
 	else						   /* Parent writes argv[1] to pipe */
 	{
 		close(pipefd[READ_END]);		  /* Close unused read end */
-		write(pipefd[WRITE_END], argv[1], strlen(argv[1]));
-		close(pipefd[WRITE_END]);		  /* Reader will see EOF */
+		close(STDOUT_FILENO);
+		if (dup2(pipefd[WRITE_END], STDOUT_FILENO) == -1)
+		{	perror("dup2");
+			return (EXIT_FAILURE);
+		}
+
+		close(pipefd[WRITE_END]);
+		printf("]%s[ftp\n", argv[1]);
+		fflush(stdout);
+		puts(argv[1]);
+		fflush(stdout);
+		write(STDOUT_FILENO, argv[1], strlen(argv[1]));
+		close(STDOUT_FILENO);		  /* Reader will see EOF */
 		wait(NULL);				/* Wait for child */
 	}
 	return (EXIT_SUCCESS);

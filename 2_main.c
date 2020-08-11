@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 
+	close(STDIN_FILENO);
 	if (dup2(fd, STDIN_FILENO) == -1)
 	{	perror("dup2");
 		return (EXIT_FAILURE);
@@ -38,6 +39,5 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 
-	close(fd);
 	return (EXIT_SUCCESS);
 }

@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 
+	close(STDOUT_FILENO);
 	if (dup2(fd, STDOUT_FILENO) == -1)
 	{	perror("dup2");
 		return (EXIT_FAILURE);
@@ -37,6 +38,5 @@ int main(int argc, char **argv)
 	puts("Holberton School");
 	printf("Cali, CO\n");
 
-	close(fd);
 	return (EXIT_SUCCESS);
 }

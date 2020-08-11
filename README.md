@@ -263,6 +263,8 @@ gnihtemoS
 alex@~$
 alex@~$ gcc -Wall -Wextra -Werror -pedantic 3_main.c -o hecho
 alex@~$ ./hecho "Something"
+ptf[gnihtemoS]
+gnihtemoS
 gnihtemoS
 alex@~$
 ```
