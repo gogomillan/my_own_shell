@@ -1,5 +1,12 @@
-# my_own_shell
+# My_own_shell
 Workshop for the shell v2 in Holberton School
+
+## Table of content
+[Requierements](#Requierements)
+[Redirection Concept](#Redirection Concept)
+[Pipe Concept](#Pipe Concept)
+[Author](#Author)
+[License](#License)
 
 ## Requierements
 - Ubluntu Linux 14.04
@@ -55,8 +62,6 @@ alex@~$
 Here you can see that what was initially printed on stdout with printf, is now  
 printed on stderr. You can check that by redirecting the output on /dev/null,  
 and only stderr should remain.  
-
-## Tasks
 
 ### Task 0. stdout to a file
 Write a program that opens a file (in write mode) and redirects stdout to this  
