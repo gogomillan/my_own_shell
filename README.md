@@ -150,7 +150,7 @@ vagrant@trusty-64:~$
 
 **File:** [2_main.c](2_main.c)
 
-## Pipe Concept
+## Pipe_Concept
 If you need execute a command like next:
 ```wrap bash
 ls | cat -e
