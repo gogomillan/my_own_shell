@@ -1,6 +1,10 @@
 # my_own_shell
 Workshop for the shell v2 in Holberton School
 
+## Requierements
+- Ubluntu Linux 14.04
+- gcc (Ubuntu 4.8.4-2ubuntu1~14.04.4) 4.8.4
+
 ## Concept
 If you need execute a command like next:
 ```wrap bash
