@@ -116,6 +116,30 @@ vagrant@trusty-64:~$
 
 **File:** [1_main.c](1_main.c)
 
+### Task 1. stdout to end of a file
+Write a program that opens a file, and executes the command /usr/bin/rev with  
+the files content as input.  
+
+**Example:**
+```wrap bash
+vagrant@trusty-64:~$
+vagrant@trusty-64:~$ gcc -Wall -Wextra -Werror -pedantic 2_main.c -o fromfile
+vagrant@trusty-64:~$
+vagrant@trusty-64:~$ ./fromfile Tulsa
+tuodts no dneppa tseT
+loohcS notrebloH
+OC ,ilaC
+tuodts no dneppa tseT
+loohcS notrebloH
+OC ,ilaC
+tuodts no dneppa tseT
+loohcS notrebloH
+OC ,ilaC
+vagrant@trusty-64:~$
+```
+
+**File:** [2_main.c](2_main.c)
+
 ## Author
 Gonzalo Gomez Millan [Twitter](https://twitter.com/gogomillan) |
 [LinkedIn](https://linkedin.com/in/gogomillan)
