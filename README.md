@@ -117,7 +117,7 @@ vagrant@trusty-64:~$
 **File:** [1_main.c](1_main.c)
 
 ### Task 1. stdout to end of a file
-Write a program that opens a file, and executes the command /usr/bin/rev with  
+Write a program that opens a file, and executes the command */usr/bin/rev* with  
 the files content as input.  
 
 **Example:**
