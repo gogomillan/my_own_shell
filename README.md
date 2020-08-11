@@ -303,3 +303,6 @@ alex@~$
 ## Author
 Gonzalo Gomez Millan [Twitter](https://twitter.com/gogomillan) |
 [LinkedIn](https://linkedin.com/in/gogomillan)
+
+## License
+MIT License [LICENSE](LICENSE)
