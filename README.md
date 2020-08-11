@@ -4,8 +4,9 @@ Workshop for the shell v2 in Holberton School
 ## Requierements
 - Ubluntu Linux 14.04
 - gcc (Ubuntu 4.8.4-2ubuntu1~14.04.4) 4.8.4
+- [EYNTK] - Shell v2 (Refference to the Holberton's intranet)
 
-## Concept
+## Redirection Concept
 If you need execute a command like next:
 ```wrap bash
 ls > ls_result
@@ -140,6 +141,126 @@ tuodts no dneppa tseT
 loohcS notrebloH
 OC ,ilaC
 vagrant@trusty-64:~$
+```
+
+**File:** [2_main.c](2_main.c)
+
+## Pipe Concept
+If you need execute a command like next:
+```wrap bash
+ls | cat -e
+```
+You probably used it a lot without even knowing how it works: the pipe. The  
+pipe is used to make the output of a process the input of another process.  
+
+### Do not confuse input and arguments:
+```wrap bash
+cat -e
+```
+Here, -e is an argument, but the command cat will read its input from the  
+standard input (a.k.a stdin)  
+To reproduce this behaviour we will need another fantastic system call (man 2)
+> pipe !. Please read carefully the manual page of pipe(2), along with the  
+manual page of pipe(7).  
+
+**Example** from the manual page of pipe(2):  
+
+The following program creates a pipe, and then fork(2)s to create a child  
+process; the child inherits a duplicate set of file descriptors that refer to  
+the same pipe. After the fork(2), each process closes the descriptors that it  
+doesnt need for the pipe (see pipe(7)). The parent then writes the string  
+contained in the programs command-line argument to the pipe, and the child  
+reads this string a byte at a time from the pipe and echoes it on standard  
+output.  
+
+```wrap bash
+alex@~$ cat main_1.c
+#include <sys/wait.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+
+#define READ_END    0
+#define WRITE_END   1
+
+/**
+ * main - pipe(2) manual page example
+ * @argc: Arguments counter
+ * @argv: Arguments vector
+ *
+ * Return: EXIT_SUCCESS or EXIT_FAILURE
+ */
+int main(int argc, char *argv[])
+{
+    int pipefd[2];
+    pid_t cpid;
+    char buf;
+
+    if (argc != 2)
+    {
+        fprintf(stderr, "Usage: %s <string>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    if (pipe(pipefd) == -1)
+    {
+        perror("pipe");
+        exit(EXIT_FAILURE);
+    }
+
+    cpid = fork();
+    if (cpid == -1)
+    {
+        perror("fork");
+        exit(EXIT_FAILURE);
+    }
+
+    if (cpid == 0)                 /* Child reads from pipe */
+    {
+        close(pipefd[WRITE_END]);          /* Close unused write end */
+        while (read(pipefd[READ_END], &buf, 1) > 0)
+            write(STDOUT_FILENO, &buf, 1);
+        write(STDOUT_FILENO, "\n", 1);
+        close(pipefd[READ_END]);
+        _exit(EXIT_SUCCESS);
+    }
+    else                           /* Parent writes argv[1] to pipe */
+    {
+        close(pipefd[READ_END]);          /* Close unused read end */
+        write(pipefd[WRITE_END], argv[1], strlen(argv[1]));
+        close(pipefd[WRITE_END]);          /* Reader will see EOF */
+        wait(NULL);                /* Wait for child */
+        exit(EXIT_SUCCESS);
+    }
+}
+alex@~$ gcc -Wall -Wextra -Werror -pedantic main_1.c
+alex@~$ ./a.out Holberton
+Holberton
+alex@~$
+```
+
+### DUP2 + PIPE
+To create a pipe between two processes, we need to combine the functions dup2  
+and pipe. Heres the process: We first need to create a pipe using pipe (2), and  
+then use dup2 (2) to redirect the output of the first command into the write  
+end of our pipe. Finally, we need to redirect the read end of our pipe into the  
+input of our second command.  
+
+## Tasks
+
+### Task 3. stdout to command input
+Write a program that pipes stdout to the command /usr/bin/rev. For this  
+exercise, youll need to use dup2, pipe and execve. You have to create a pipe,  
+redirect stdout to the write end of the pipe, and redirect the read end of the  
+pipe to be the input of rev, so everything printed on stdout using printf,  
+write,  should be printed reversed.  
+
+**Example:**
+```wrap bash
+alex@~$ echo "Something" | /usr/bin/rev
+gnihtemoS
+alex@~$
 ```
 
 **File:** [2_main.c](2_main.c)
