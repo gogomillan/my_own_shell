@@ -36,7 +36,7 @@ vagrant@~$
 
 ## Redirection_Concept
 If you need execute a command like next:
-```wrap bash
+```bash
 ls > ls_result
 ```
 The previous command will execute ls and redirect stdout to the file named  
@@ -47,7 +47,7 @@ Our solution is a system call (man 2) named dup2.
 
 Let's see an example:  
 **Example:**
-```wrap bash
+```bash
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -91,7 +91,7 @@ should be printed in the file you opened. You can try to enhance your program
 by passing the file to write in as an argument.  
 
 **Example:**
-```Wrap bash
+```bash
 vagrant@trusty-64:~$
 vagrant@trusty-64:~$ gcc -Wall -Werror -Wextra -pedantic 0_main.c -o tofile
 vagrant@trusty-64:~$ ./tofile
@@ -115,7 +115,7 @@ etc and it should be appended at the end of the file you opened. You can try to
 enhance your program by passing the file to write in as an argument.  
 
 **Example:**
-```wrap bash
+```bash
 vagrant@trusty-64:~$
 vagrant@trusty-64:~$ gcc -Wall -Werror -Wextra -pedantic 1_main.c -o addfile
 vagrant@trusty-64:~$ ./addfile Tulsa
@@ -152,7 +152,7 @@ Write a program that opens a file, and executes the command **_/usr/bin/rev_** w
 the files content as input.  
 
 **Example:**
-```wrap bash
+```bash
 vagrant@trusty-64:~$
 vagrant@trusty-64:~$ gcc -Wall -Wextra -Werror -pedantic 2_main.c -o fromfile
 vagrant@trusty-64:~$
@@ -173,14 +173,14 @@ vagrant@trusty-64:~$
 
 ## Pipe_Concept
 If you need execute a command like next:
-```wrap bash
+```bash
 ls | cat -e
 ```
 You probably used it a lot without even knowing how it works: the pipe. The  
 pipe is used to make the output of a process the input of another process.  
 
 ### Do not confuse input and arguments:
-```wrap bash
+```bash
 cat -e
 ```
 Here, -e is an argument, but the command cat will read its input from the  
@@ -199,7 +199,7 @@ contained in the programs command-line argument to the pipe, and the child
 reads this string a byte at a time from the pipe and echoes it on standard  
 output.  
 
-```wrap bash
+```bash
 alex@~$ cat main_1.c
 #include <sys/wait.h>
 #include <stdio.h>
@@ -283,7 +283,7 @@ pipe to be the input of rev, so everything printed on stdout using printf,
 write,  should be printed reversed.  
 
 **Example:**
-```wrap bash
+```bash
 alex@~$ echo "Something" | /usr/bin/rev
 gnihtemoS
 alex@~$
@@ -304,7 +304,7 @@ execute the command /usr/bin/rev in another forked process, but the output from
 ls must be piped to rev.  
 
 **Example:**
-```wrap bash
+```bash
 alex@~$
 alex@~$ ls | rev
 c.niam_0
