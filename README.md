@@ -2,6 +2,7 @@
 Workshop for the shell v2 in Holberton School
 
 ## Table of content
+- [Installation](#Installation)
 - [Requierements](#Requierements)
 - [Redirection Concept](#Redirection_Concept)
 - [Pipe Concept](#Pipe_Concept)
@@ -12,6 +13,26 @@ Workshop for the shell v2 in Holberton School
 - Ubluntu Linux 14.04
 - gcc (Ubuntu 4.8.4-2ubuntu1~14.04.4) 4.8.4
 - [EYNTK] - Shell v2 (Refference to the Holberton's intranet)
+
+## Installation
+1. Clone the repo in your local machine:  
+**Example:**
+```bash
+vagrant@~$
+vagrant@~$ git clone https://github.com/gogomillan/my_own_shell
+vagrant@~$
+```
+2. Go to the directory and compile the task you want:  
+**Example:**
+```bash
+vagrant@~$
+vagrant@~$ cd my_own_shell
+vagrant@~$ gcc -Wall -Wextra -Werror -pedantic main_0.c
+vagrant@~$ ./a.out
+Test on stdout
+Holberton School
+vagrant@~$
+```
 
 ## Redirection_Concept
 If you need execute a command like next:
