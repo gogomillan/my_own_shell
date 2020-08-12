@@ -2,8 +2,8 @@
 Workshop for the shell v2 in Holberton School
 
 ## Table of content
-- [Installation](#Installation)
 - [Requierements](#Requierements)
+- [Installation](#Installation)
 - [Redirection Concept](#Redirection_Concept)
 - [Pipe Concept](#Pipe_Concept)
 - [Author](#Author)
