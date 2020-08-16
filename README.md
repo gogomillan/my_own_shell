@@ -326,6 +326,24 @@ alex@~$
 
 **File:** [4_main.c](4_main.c)
 
+### Task 4. pipe between two processes
+Simulating the << redirection to a reverse, heredoc.  
+
+**Example:**
+```bash
+vagrant@~$
+vagrant@~$ gcc -Wall -Werror -Wextra -pedantic 5_main.c -o fromkb
+vagrant@~$ ./fromkb HELLO
+> ESTA ES
+> LA MEJOR OPCION
+> HELLO
+SE ATSE
+NOICPO ROJEM AL
+vagrant@~$
+```
+
+**File:** [5_main.c](5_main.c)
+
 ## Author
 Gonzalo Gomez Millan [Twitter](https://twitter.com/gogomillan) |
 [LinkedIn](https://linkedin.com/in/gogomillan)
